@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Say Hello API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "/api/v1"
+      }
+    ],
+    "paths": {
+      "/sayHello": {
+        "post": {
+          "summary": "Say Hello",
+          "tags": [
+            "Hello"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SayHelloRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Okay",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SayHelloResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/force-panic": {
+        "get": {
+          "summary": "Force Panic",
+          "tags": [
+            "Panic"
+          ],
+          "responses": {
+            "200": {
+              "description": "Okay",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "SayHelloRequest": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "SayHelloResponse": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  
